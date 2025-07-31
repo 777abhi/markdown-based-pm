@@ -1,5 +1,6 @@
 {
   "name": "markdown-based-pm",
+  "private": true,
   "scripts": {
     "release": "semantic-release"
   },
