@@ -1,0 +1,44 @@
+{
+  "Add Task with User Input": {
+    "prefix": "t",
+    "body": [
+		"",
+		"- [${1:chore}:${2:taskname}](tasks/${CURRENT_YEAR}${CURRENT_MONTH}${CURRENT_DATE}_${CURRENT_HOUR}${CURRENT_MINUTE}${CURRENT_SECOND}.md)"
+    ],
+    "description": "Add a task with a user-defined value"
+  },
+  "Add Sub Task with User Input": {
+    "prefix": "s",
+    "body": [
+		"",
+		"- [${1:chore}:${2:subtaskname}](subtasks/${CURRENT_YEAR}${CURRENT_MONTH}${CURRENT_DATE}_${CURRENT_HOUR}${CURRENT_MINUTE}${CURRENT_SECOND}.md)"
+    ],
+    "description": "Add a sub task with a user-defined value"
+  },
+  "Add Task Metadata": {
+    "prefix": "m",
+    "body": [
+      "---",
+      "- assigned: ${1:ab}",
+      "- status: ${2:new}",
+      "- pri: ${3:m}",
+      "- created: ${CURRENT_YEAR}${CURRENT_MONTH}${CURRENT_DATE}_${CURRENT_HOUR}${CURRENT_MINUTE}${CURRENT_SECOND}",
+      "- tags: ${6:chore}",
+      "- effort: ${7:0.25}",
+      "---",
+      "",
+      "# Progress",
+      "${0}"
+    ],
+    "description": "Add task metadata with placeholders"
+  },
+  "Insert Current Date, Time, and Day": {
+    "prefix": "d",
+    "body": [
+      "",
+      "## ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}:${CURRENT_SECOND} (${CURRENT_DAY_NAME})",
+      ""
+    ],
+    "description": "Insert the current date, time, and day"
+  }
+}
