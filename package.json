@@ -2,7 +2,11 @@
   "name": "markdown-based-pm",
   "private": true,
   "scripts": {
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "kanban": "node scripts/kanban.js",
+    "archive": "node scripts/archive_tasks.js",
+    "tags": "node scripts/tag_index.js",
+    "dependencies": "node scripts/dependencies.js"
   },
   "devDependencies": {
     "semantic-release": "24.2.7"

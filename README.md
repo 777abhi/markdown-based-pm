@@ -35,51 +35,55 @@ The current system provides the following features:
    for tracking all tasks.
 6. **Semantic Release:** Automated versioning and release management configured
    via `semantic-release`.
+7. **Kanban Board:** A script to visualize tasks in columns based on their
+   `status`.
+8. **Task Archiving:** A utility to move completed tasks to an `archive` folder.
+9. **Tag Indexing:** A script to generate a `tags.md` index file.
+10. **Dependency Tracking:** Visualize task dependencies based on `blocked_by`.
+11. **Enhanced Metadata:** Added `due_date`, `related_links`, `description`, and
+    `blocked_by` fields.
 
 ## Future Roadmap (Next 20 Features)
 
 We plan to incrementally enhance the system with the following 20 features:
 
-1. **Task Template Enhancement:** Add `due_date`, `related_links`, and
-   `description` fields to the metadata snippet.
-2. **Kanban Board View:** A script to visualize tasks in columns based on their
-   `status` (new, in-progress, done).
-3. **Task Archiving:** A utility to move completed tasks (status: done) to an
-   `archive` folder to keep the active view clean.
-4. **Tag Indexing:** A script to generate a `tags.md` index file that lists
-   tasks grouped by their `tags`.
-5. **Dependency Tracking:** Add a `blocked_by` field to metadata and a script to
-   visualize or warn about dependencies.
-6. **Time Tracking:** Enhance progress logging to support start/stop timestamps
+1. **Time Tracking:** Enhance progress logging to support start/stop timestamps
    and calculate duration.
-7. **Task Summary Generation:** A script to aggregate "Progress" sections from
+2. **Task Summary Generation:** A script to aggregate "Progress" sections from
    active tasks into a daily or weekly report.
-8. **Automated Status Updates:** A pre-commit hook that updates the `status`
+3. **Automated Status Updates:** A pre-commit hook that updates the `status`
    field based on file location (e.g., moving to `done/` folder).
-9. **Priority Sorting:** A script to reorder tasks in `index.md` based on the
+4. **Priority Sorting:** A script to reorder tasks in `index.md` based on the
    `pri` (priority) metadata field.
-10. **Deadlines & Overdue Alerts:** A script that scans for `due_date` and
-    generates warnings for approaching or overdue deadlines.
-11. **User Assignment View:** Generate an `assigned.md` file that groups tasks
-    by the `assigned` user.
-12. **Effort Estimation Rollup:** Calculate and display the total `effort`
-    remaining for all active tasks.
-13. **Subtask Rolling:** Automatically list linked subtasks within the parent
-    task file for better visibility.
-14. **Template Support:** Support multiple task types (e.g., "Bug", "Feature",
-    "Research") with distinct metadata templates.
-15. **CLI Tool:** A command-line interface (e.g., `pm status`, `pm add`) to
+5. **Deadlines & Overdue Alerts:** A script that scans for `due_date` and
+   generates warnings for approaching or overdue deadlines.
+6. **User Assignment View:** Generate an `assigned.md` file that groups tasks
+   by the `assigned` user.
+7. **Effort Estimation Rollup:** Calculate and display the total `effort`
+   remaining for all active tasks.
+8. **Subtask Rolling:** Automatically list linked subtasks within the parent
+   task file for better visibility.
+9. **Template Support:** Support multiple task types (e.g., "Bug", "Feature",
+   "Research") with distinct metadata templates.
+10. **CLI Tool:** A command-line interface (e.g., `pm status`, `pm add`) to
     interact with the system without snippets.
-16. **Calendar View:** Generate a calendar view (Markdown or iCal) showing tasks
+11. **Calendar View:** Generate a calendar view (Markdown or iCal) showing tasks
     on their created or due dates.
-17. **GitHub/GitLab Integration:** Sync markdown tasks with GitHub Issues to
+12. **GitHub/GitLab Integration:** Sync markdown tasks with GitHub Issues to
     enable two-way updates.
-18. **Search Utility:** A specialized grep tool to find tasks by content, tag,
+13. **Search Utility:** A specialized grep tool to find tasks by content, tag,
     or metadata field.
-19. **Review Workflow:** Add a `review` status and a script to identify and list
+14. **Review Workflow:** Add a `review` status and a script to identify and list
     tasks waiting for review.
-20. **Burndown Chart:** Generate a simple ASCII or image-based burndown chart
+15. **Burndown Chart:** Generate a simple ASCII or image-based burndown chart
     based on task completion history.
+16. **Git Integration:** Automate commit messages based on task ID.
+17. **Email Notification:** Notify assignee via email when a task is updated.
+18. **Slack Integration:** Post updates to a Slack channel.
+19. **Markdown Table Conversion:** Convert tasks list to a markdown table
+    format for better readability.
+20. **Task Analytics:** Generate stats on task completion time, average effort,
+    etc.
 
 ## How to Add Tasks and Subtasks (Usage)
 
@@ -115,8 +119,8 @@ Example:
 ### Adding Metadata to a Task or Subtask
 
 1. Use the snippet prefix `m` in the newly created task or subtask file.
-2. Fill in the placeholders for `assigned`, `status`, `priority`, `tags`, and
-   `effort`.
+2. Fill in the placeholders for `assigned`, `status`, `priority`, `due_date`,
+   `tags`, `effort`, `related_links`, `description`, and `blocked_by`.
 3. The snippet will generate a metadata block at the top of the file.
 
 Example:
@@ -127,8 +131,12 @@ Example:
 - status: new
 - pri: m
 - created: 20250731_193000
+- due_date: 2025-08-01
 - tags: chore
 - effort: 0.5
+- related_links: http://example.com
+- description: A brief description
+- blocked_by:
 ---
 
 # Progress
