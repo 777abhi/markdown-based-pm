@@ -39,7 +39,7 @@ allKeys.forEach(status => {
     if (statusTasks.length > 0 || orderedKeys.includes(status)) {
         markdown += `## ${status.toUpperCase()} (${statusTasks.length})\n\n`;
         if (statusTasks.length === 0) {
-            markdown += '_No tasks_\n\n';
+            markdown += '- No tasks\n\n';
         } else {
             statusTasks.forEach(task => {
                 const title = task.metadata.description || task.file;
@@ -51,6 +51,9 @@ allKeys.forEach(status => {
         }
     }
 });
+
+// Remove trailing newlines
+markdown = markdown.trim() + '\n';
 
 fs.writeFileSync(outputFile, markdown);
 console.log(`Kanban board generated at ${outputFile}`);

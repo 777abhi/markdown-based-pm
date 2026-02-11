@@ -47,5 +47,7 @@ sortedTags.forEach(tag => {
     markdown += '\n';
 });
 
+markdown = markdown.trim() + '\n';
+
 fs.writeFileSync(outputFile, markdown);
 console.log(`Tag index generated at ${outputFile}`);
